@@ -90,11 +90,11 @@ function renderCard(card, player) {
 function getCardUI(card) {
     var el = document.createElement('div');
     var icon = '';
-    if (card.Suit == 'Hearts')
+    if (card.Suit == 'H')
     icon='&hearts;';
-    else if (card.Suit == 'Spades')
+    else if (card.Suit == 'S')
     icon = '&spades;';
-    else if (card.Suit == 'Diamonds')
+    else if (card.Suit == 'D')
     icon = '&diams;';
     else
     icon = '&clubs;';
