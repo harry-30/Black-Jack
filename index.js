@@ -33,6 +33,7 @@ function shuffle() {
     }
 }
 
+// Creating a new player for the game
 function createPlayers(num) {
     players = new Array();
     for(var i = 1; i <= num; i++)
@@ -43,6 +44,7 @@ function createPlayers(num) {
     }
 }
 
+// Render the existing players
 function createPlayersUI() {
     document.getElementById('players').innerHTML = '';
     for(var i = 0; i < players.length; i++) {
@@ -65,6 +67,7 @@ function createPlayersUI() {
     }
 }
 
+// Deal 2 cards for each players on the table
 function dealHands() {
     // alternate handing cards to each player
     // 2 cards each
@@ -82,19 +85,21 @@ function dealHands() {
     updateDeck();
 }
 
+// Render the dealt cards of each player
 function renderCard(card, player) {
     var hand = document.getElementById('hand_' + player);
     hand.appendChild(getCardUI(card));
 }
 
+// A helper function of renderCard()
 function getCardUI(card) {
     var el = document.createElement('div');
     var icon = '';
-    if (card.Suit == 'Hearts')
+    if (card.Suit == 'H')
     icon='&hearts;';
-    else if (card.Suit == 'Spades')
+    else if (card.Suit == 'S')
     icon = '&spades;';
-    else if (card.Suit == 'Diamonds')
+    else if (card.Suit == 'D')
     icon = '&diams;';
     else
     icon = '&clubs;';
@@ -104,10 +109,12 @@ function getCardUI(card) {
     return el;
 }
 
+// Update the deck after each turn
 function updateDeck() {
     document.getElementById('deckcount').innerHTML = deck.length;
 }
 
+// Calculate the points of each player on the table
 function getPoints(player) {
     var points = 0;
     for(var i = 0; i < players[player].Hand.length; i++) {
@@ -117,6 +124,7 @@ function getPoints(player) {
     return points;
 }
 
+// Update the points of each player on the table
 function updatePoints() {
     for (var i = 0 ; i < players.length; i++) {
         getPoints(i);
@@ -124,6 +132,7 @@ function updatePoints() {
     }
 }
 
+// Deal one more card to a player on the table
 function hit() {
     var card = deck.pop();
     players[0].Hand.push(card);
@@ -133,6 +142,7 @@ function hit() {
     check()
 }
 
+// End the game of Black Jack
 function endGame() {
     let winner = -1;
     let score = 0;
@@ -149,6 +159,7 @@ function endGame() {
     document.getElementById("status").style.display = "inline-block";
 }
 
+// Check for the winning conditions
 function check() {
     if (players[0].Points > 21) {
         document.getElementById("status").innerHTML = "Player: " + players[0].ID + " has LOST";
@@ -157,7 +168,7 @@ function check() {
     }
 }
 
-
+// Start the game
 function startblackjack() {
     document.getElementById('btnStart').value = 'Restart';
     document.getElementById("status").style.display="none";
