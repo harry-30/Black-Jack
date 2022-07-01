@@ -182,4 +182,4 @@ function startblackjack() {
     document.getElementById('player_' + currentPlayer).classList.add('active');
 }
 
-app.listen(process.env.PORT || 3000);
+document.listen(process.env.PORT || 3000);
