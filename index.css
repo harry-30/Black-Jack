@@ -3,7 +3,8 @@
     width: 720px;
     border: solid 1px #ddd;
     margin: 0 auto;
-   background: #3ac7fe;
+    /* background: #3ac7fe; */
+    background: #808080;
 border: solid 10px;
 text-align:center;
 min-height:430px;
@@ -17,7 +18,8 @@ min-height:430px;
 }
 
 .btn:hover{
-    background:dodgerblue;
+    /* background:dodgerblue; */
+    background: lightslategray
 }
 
 .game h3
